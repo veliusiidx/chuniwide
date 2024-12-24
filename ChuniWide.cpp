@@ -12,7 +12,7 @@ DWORD64 GetProcId(const wchar_t*);
 
 int main()
 {
-	cout << "Chunithm Luminous positioner By VELIUS" << endl;
+	cout << "Chunithm Luminous Plus positioner By VELIUS" << endl;
 	cout << "Please start Chunithm now" << endl;
 	Sleep(20000);
 	HWND hwnd = FindWindowA(NULL, "teaGfx DirectX Release");
@@ -43,9 +43,11 @@ int main()
 		}
 		else
 		{
+			uintptr_t Base = GetModuleBaseAddress(procID, L"chusanApp.exe");
+			cout << Base << endl;
 			unsigned int gameplayread;
-			//DWORD64 gameplayaddress = 0x19E3F4;
-			//int gameplayflag = 0;
+			DWORD64 gameplayaddress = Base + 0x1E63B1C;
+			int gameplayflag = 0;
 			RECT rect;
 			GetWindowRect(hwnd, &rect);
 			rect.left = 0;
@@ -59,16 +61,16 @@ int main()
 				Sleep(1000);
 			}
 			//SetWindowLong(hwnd, -16, 335544320);
-			SetWindowPos(hwnd, 0, rect.left, rect.top, 2560, 1440, SWP_NOMOVE);
+			//SetWindowPos(hwnd, 0, rect.left, rect.top, 2560, 1440, SWP_NOMOVE);
 			//SetWindowPos(hwnd, 0, rect.left, rect.top, 2560, 1440, SWP_NOMOVE);
 			//SetWindowPos(hwnd, 0, rect.left, rect.top, 2400, 1350, SWP_NOMOVE);
-			/*for (;;)
+			for (;;)
 			{
 
 				ReadProcessMemory(handle, (BYTE*)gameplayaddress, &gameplayread, sizeof(gameplayread), 0);
 				//cout << gameplayread << endl;
 				//if LDJ, set to 800 otherwise 1024
-				if (gameplayread == 0 && gameplayflag == 0)
+				if (gameplayread == 16 && gameplayflag == 0)
 				{
 					cout << "Trying to SET POSITION" << endl;
 					SetWindowPos(hwnd, 0, rect.left - 288, rect.top - 324, 2496, 1404, SWP_SHOWWINDOW);
@@ -78,7 +80,7 @@ int main()
 					gameplayflag = 1;
 				}
 				//cout << resultscreenread << endl;
-				if (gameplayread > 0 && gameplayflag == 1)
+				if (gameplayread == 24 && gameplayflag == 1)
 				{
 					SetWindowPos(hwnd, 0, rect.left, rect.top, 1920, 1080, SWP_SHOWWINDOW);
 					gameplayflag = 0;
@@ -86,7 +88,7 @@ int main()
 
 				Sleep(500);
 			}
-			*/
+			
 		}
 	}
 }
