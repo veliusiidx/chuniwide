@@ -4,6 +4,8 @@ Instructions:
 Make sure the game runs in windowed mode.
 Run Chuniwide in the version of your choice in Admin mode.
 Start the game.
-Play.
+Play
 
-Known issues include the game not correctly zooming out when entering the song select screen sometimes. This is not 100% stable and it sometimes fixes itself depending on what songs are played. However, as far as I've tested, this is 100% stable for when playing a song and when the result screen plays.
+Special Thanks:
+tangent 90° for giving a better address for Verse and subsequent versions.
+akanyan for showing me how to turn this program into a DLL.
